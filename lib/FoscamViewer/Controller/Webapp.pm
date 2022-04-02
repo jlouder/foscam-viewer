@@ -2,7 +2,7 @@ package FoscamViewer::Controller::Webapp;
 use Mojo::Base 'Mojolicious::Controller', -signatures;
 
 sub check_auth ($self) {
-  $self->redirect_to('/login') and return 0
+  $self->redirect_to('login') and return 0
     unless $self->is_user_authenticated;
   return 1;
 }
@@ -46,7 +46,7 @@ sub login ($self) {
   if ($authd) {
     $self->camera->set_username($username);
     $self->camera->set_password($password);
-    $self->redirect_to('/camera');
+    $self->redirect_to('camera');
   }
   $self->stash(error_message => "Username or password incorrect");
   $self->render('webapp/login_form');

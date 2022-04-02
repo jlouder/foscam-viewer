@@ -44,6 +44,18 @@ sub startup ($self) {
     validate_user => \&validate_user,
   });
 
+  # Change scheme if "X-Forwarded-HTTPS" header is set
+  $self->hook(before_dispatch => sub ($c) {
+    $c->req->url->base->scheme('https')
+      if $c->req->headers->header('X-Forwarded-HTTPS');
+  });
+
+  # Move first part and slash from path to base path in production mode
+  $self->hook(before_dispatch => sub ($c) {
+    push @{$c->req->url->base->path->trailing_slash(1)},
+      shift @{$c->req->url->path->leading_slash(0)};
+  }) if $self->mode eq 'production';
+
   $self->helper(camera => sub {
     my $this = shift;
     my $c = FoscamViewer::Camera->new(base_url => $config->{camera_baseurl});
@@ -65,7 +77,7 @@ sub startup ($self) {
   # Normal route to controller
   $r->get('/')->to(cb => sub {
     my $self = shift;
-    $self->redirect_to('/camera');
+    $self->redirect_to('camera');
   });
 
   my $camera = $r->under('/camera')->to('webapp#check_auth');
