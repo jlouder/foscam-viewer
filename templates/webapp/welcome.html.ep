@@ -1,0 +1,30 @@
+% layout 'default';
+% title 'Welcome';
+
+<img class="img-fluid" id="stream" src="/camera/stream" />
+
+<div class="container-sm"> 
+  <div class="row">
+    <div class="col"></div>
+    <div class="col d-flex justify-content-center">
+      <button class="btn btn-secondary" onclick="moveCamera('up')"><i class="bi bi-arrow-up"></i></button>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-secondary" onclick="moveCamera('left')"><i class="bi bi-arrow-left"></i></button>
+    </div>
+    <div class="col"></div>
+    <div class="col d-flex justify-content-start">
+      <button class="btn btn-secondary" onclick="moveCamera('right')"><i class="bi bi-arrow-right"></i></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col d-flex justify-content-center">
+      <button class="btn btn-secondary" onclick="moveCamera('down')"><i class="bi bi-arrow-down"></i></button>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+---
+# passphrases for signed cookies
+secrets:
+  - my_little_secret
+
+# URL of your camera, the non-HTTPS port (88 if you didn't change it)
+camera_baseurl: http://mycamera:88
+
+# How often the MJPEG stream should fetch and push a new image
+mjpeg_refresh_seconds: 1.0
+
+# When clicking the motion arrows, how long to let the motion run
+# before we stop it.
+motion_seconds: 0.3

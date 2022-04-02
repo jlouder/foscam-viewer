@@ -1,0 +1,22 @@
+% layout 'default';
+% title 'Login';
+
+<form method="post">
+  <div class="row justify-content-center">
+    <div class="mb-3 col-4 col-md-2">
+      <label for="floatingUsername">Username</label>
+      <input name="username" type="text" class="form-control" id="floatingUsername">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="mb-3 col-4 col-md-2">
+      <label for="floatingPassword">Password</label>
+      <input name="password" type="password" class="form-control" id="floatingPassword">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4 col-md-2">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</form>
