@@ -34,4 +34,4 @@ inc/
 /pm_to_blib
 /*.zip
 
-foscam_viewer.yml
+foscam_viewer*.yml
