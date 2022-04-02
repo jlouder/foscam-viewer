@@ -1,7 +1,7 @@
 % layout 'default';
 % title 'Welcome';
 
-<img class="img-fluid" id="stream" src="/camera/stream" />
+<img class="img-fluid" id="stream" src="camera/stream" />
 
 <div class="container-sm"> 
   <div class="row">
