@@ -51,10 +51,11 @@ sub startup ($self) {
   });
 
   # Move first part and slash from path to base path in production mode
-  $self->hook(before_dispatch => sub ($c) {
-    push @{$c->req->url->base->path->trailing_slash(1)},
-      shift @{$c->req->url->path->leading_slash(0)};
-  }) if $self->mode eq 'production';
+  if (defined $config->{base_path}) {
+    $self->hook(before_dispatch => sub ($c) {
+      $c->req->url->base->path->parse($config->{base_path});
+    });
+  }
 
   $self->helper(camera => sub {
     my $this = shift;
