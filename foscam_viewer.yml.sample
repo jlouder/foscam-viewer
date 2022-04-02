@@ -3,6 +3,9 @@
 secrets:
   - my_little_secret
 
+# How long sessions are valid (defaults to 3600)
+session_expiration_seconds: 86400
+
 # URL of your camera, the non-HTTPS port (88 if you didn't change it)
 camera_baseurl: http://mycamera:88
 

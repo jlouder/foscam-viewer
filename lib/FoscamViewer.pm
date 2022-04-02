@@ -35,6 +35,10 @@ sub startup ($self) {
   # Configure the application
   $self->secrets($config->{secrets});
 
+  if (defined $config->{session_expiration_seconds}) {
+    $self->sessions->default_expiration($config->{session_expiration_seconds});
+  }
+
   $self->plugin('Authentication' => {
     load_user     => \&load_user,
     validate_user => \&validate_user,
