@@ -1,0 +1,8 @@
+---
+# This file is read only in 'production' mode, which is the default
+# when run by hyponotoad, which you'd likely use when reverse proxying
+# to the application.
+
+# If you're proxying the app to something beneath /, set the base
+# path of the app here so that the links it makes to itself are correct.
+base_path: /camera
